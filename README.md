@@ -3,6 +3,12 @@
 # ArduinoUltraSoundTheremin
 The unsung melody, fusing ultrasound sensor for distance measurement and translating that to sound. Some of the participants to tried this recall it to being similar to Theremin https://en.wikipedia.org/wiki/Theremin
 
+On the E3 music scale, it represents the top string of a guitar. The present code has 2 modes:
+
+1. Smoke on the water mode: When the Strum button is kept pressed, the code checks if the opening seven notes of Smoke on the Water is correct. This a fretted mode of the guitar.
+2. WahWah mode: When the wahwah button is kept pressed, the guitar fret board becomes a un-fretted, thereby all the tones inbetween the notes can be played.
+
+![alt tag](https://github.com/Django0/ArduinoUltraSoundTheremin/blob/master/PeoplePlaying.png)
 ![alt tag](https://github.com/Django0/ArduinoUltraSoundTheremin/blob/master/Schematic.png)
 
 **Things to use:**
@@ -22,7 +28,7 @@ The unsung melody, fusing ultrasound sensor for distance measurement and transla
 
 **Pitfalls:**
 
-TBD
+1. The wahwah mode at times is not free flowing. In effect this is due to the delay in reading the pin. A workaround could be to simply comment out the "strum part" of the code and keep only the ones related to WahWah.
 
 **Main code snippet of E3_MusicInYou.ino**
 
