@@ -1,3 +1,5 @@
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
 # ArduinoUltraSoundTheremin
 The unsung melody, fusing ultrasound sensor for distance measurement and translating that to sound. Some of the participants to tried this recall it to being similar to Theremin https://en.wikipedia.org/wiki/Theremin
 
@@ -14,7 +16,7 @@ The unsung melody, fusing ultrasound sensor for distance measurement and transla
 **Connections/Procedure:**
 
 1. The volume out from the Arduino comes on pin 5, see: https://github.com/connornishijima/arduino-volume#supported-pins
-TBD.
+2. The audio output from pin 5 is PWM. Connect the speaker via a resistor and a transistor as shown here: https://developer.mbed.org/users/4180_1/notebook/using-a-speaker-for-audio-output/ Calculate how much is the drop in the voltage across the collector and emitter of the transistor you are using. I used a 900 Ohm resistor.
 
 **Pitfalls:**
 
