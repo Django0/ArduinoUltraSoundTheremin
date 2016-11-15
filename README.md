@@ -3,6 +3,8 @@
 # ArduinoUltraSoundTheremin
 The unsung melody, fusing ultrasound sensor for distance measurement and translating that to sound. Some of the participants to tried this recall it to being similar to Theremin https://en.wikipedia.org/wiki/Theremin
 
+![alt tag](https://github.com/Django0/ArduinoUltraSoundTheremin/blob/master/Schematic.png)
+
 **Things to use:**
 
 1. Arduino Uno rev.3: https://www.arduino.cc/en/Main/ArduinoBoardUno
