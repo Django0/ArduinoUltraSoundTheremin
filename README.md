@@ -38,7 +38,6 @@ On the E3 music scale, it represents the top string of a guitar. The present cod
 Volume vol; // Plug your speaker into the default pin for your board type:
 // https://github.com/connornishijima/arduino-volume#supported-pins
 
-
 // Ultrasound
 int inputPinDist = 3;     //ECHO pin
 int outputPinDist = 2;    //TRIG pin
@@ -112,7 +111,6 @@ void loop() {
   float distance = measureDistance();
 
   if (distance > 2) {
-    //float freq = 330/(distance*0.01);   // 0.01 is due to centimeter resolution and 330 m/s is the speed of sound in vacuum.
     float freq = mapDistToFreq(distance);
     Serial.print("Distance = "); Serial.print(distance); Serial.print(" cm; Freq. = "); Serial.print(freq); Serial.println(" Hz");
     if (digitalRead(strumPin) == LOW) {
@@ -122,23 +120,7 @@ void loop() {
       vol.tone(freq, 255);
     }
   }
-  //vol.fadeOut(500);  // Start a 1 s fade out
-  //vol.delay(500);    // Wait for this fade to finish
 
-  /*
-    byte volumes[4] = {255, 127, 12, 0};   // List of volumes: 100% Volume, 50% Volume, 5% Volume, 0% Volume
-    for (int i = 0; i < 4; i++) { // Iterate through volume list one second at a time
-    vol.tone(440, volumes[i]);
-    vol.delay(1000);
-    }
-    vol.tone(880, 255); // 100% Volume
-
-    vol.tone(82.4, 255); vol.fadeOut(1000); vol.delay(1000);
-    vol.tone(98, 255); vol.fadeOut(1000); vol.delay(1000);
-    vol.tone(440, 255); vol.fadeOut(1000); vol.delay(1000);
-    vol.tone(880, 255); vol.fadeOut(1000); vol.delay(1000);
-
-  */
   for (int i = 0; i < NUM_OF_LEDS; i++)
   {
     if (TurnOnLEDNum == ArrayOfLEDPins[i])
@@ -150,8 +132,6 @@ void loop() {
       digitalWrite(ArrayOfLEDPins[i], LOW);
     }
   }
-  //vol.delay(1000);
-
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
