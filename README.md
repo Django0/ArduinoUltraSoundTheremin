@@ -27,23 +27,22 @@ TBD
 ```CPP
 #include "Volume.h" // Include the Volume library
 
-Volume vol; 
-// Plug your speaker into the default pin for your board type:
+Volume vol; // Plug your speaker into the default pin for your board type:
 // https://github.com/connornishijima/arduino-volume#supported-pins
 
 
 // Ultrasound
-int inputPinDist = 3; //ECHO pin
-int outputPinDist = 2; //TRIG pin
+int inputPinDist = 3;     //ECHO pin
+int outputPinDist = 2;    //TRIG pin
 
-int TurnOnLEDNum = 2; // which pin to blink for LED
+int TurnOnLEDNum = 2;     // which pin to blink for LED
 
-int WinLEDPin = 12;// Winning LED: Smoke on the Water
-int startStrumPin = 10;
+int WinLEDPin = 12;       // Winning LED: Smoke on the Water
+int startStrumPin = 10;   // Blue light from LED to give the user the start of sequence
 #define NUM_OF_LEDS 4
 int ArrayOfLEDPins[NUM_OF_LEDS] = {4, 6, 7, 8};
-int strumPin = 11;
-int wahwahPin = 9; // Continuous sound
+int strumPin = 11;        // Keep this pressed to play
+int wahwahPin = 9;        // Continuous sound
 
 #define DELAY_NOTES 1000 // seconds
 #define LEN_EACH_NOTE 3
@@ -55,7 +54,7 @@ int wahwahPin = 9; // Continuous sound
   char ExpectedRiff[LEN_EACH_NOTE * NUM_NOTES] = "E2G2A2";
 */
 #define NUM_NOTES   7
-char ExpectedRiff[LEN_EACH_NOTE * NUM_NOTES] = "E3G3A3E3G3A3#A3"; // 0 3 5 0 3 6 5 tabulature =)
+char ExpectedRiff[LEN_EACH_NOTE * NUM_NOTES] = "E3G3A3E3G3A3#A3"; // 0 3 5 0 3 6 5
 
 
 char SmokeOnTheWaterRiff[LEN_EACH_NOTE * NUM_NOTES] = {0}; // GLOBAL VARIABLE
@@ -92,7 +91,7 @@ void setup() {
   
   pinMode(strumPin, INPUT);
   pinMode(wahwahPin, INPUT);
-  digitalWrite(wahwahPin, HIGH);
+  digitalWrite(wahwahPin, HIGH);  // To overcome loose wires
   digitalWrite(WinLEDPin, LOW);
 
 }
@@ -115,7 +114,23 @@ void loop() {
       vol.tone(freq, 255);
     }
   }
+  //vol.fadeOut(500);  // Start a 1 s fade out
+  //vol.delay(500);    // Wait for this fade to finish
 
+  /*
+    byte volumes[4] = {255, 127, 12, 0};   // List of volumes: 100% Volume, 50% Volume, 5% Volume, 0% Volume
+    for (int i = 0; i < 4; i++) { // Iterate through volume list one second at a time
+    vol.tone(440, volumes[i]);
+    vol.delay(1000);
+    }
+    vol.tone(880, 255); // 100% Volume
+
+    vol.tone(82.4, 255); vol.fadeOut(1000); vol.delay(1000);
+    vol.tone(98, 255); vol.fadeOut(1000); vol.delay(1000);
+    vol.tone(440, 255); vol.fadeOut(1000); vol.delay(1000);
+    vol.tone(880, 255); vol.fadeOut(1000); vol.delay(1000);
+
+  */
   for (int i = 0; i < NUM_OF_LEDS; i++)
   {
     if (TurnOnLEDNum == ArrayOfLEDPins[i])
@@ -127,6 +142,8 @@ void loop() {
       digitalWrite(ArrayOfLEDPins[i], LOW);
     }
   }
+  //vol.delay(1000);
+
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
