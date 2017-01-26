@@ -16,6 +16,7 @@ On the E3 music scale, it represents the top string of a guitar. The present cod
 1. Arduino Uno rev.3: https://www.arduino.cc/en/Main/ArduinoBoardUno
 2. Ultrasound sensor: http://www.micropik.com/PDF/HCSR04.pdf
 3. A salvaged desktop speaker: http://www.ebay.com/itm/HP-336155-001-internal-computer-speaker-/231113675939
+4. Optional: Fancy RGB-LED: https://www.kjell.com/se/sortiment/el-verktyg/elektronik/optokomponenter/led-rgb/rgb-lysdiod-gk-p90718
 
 **On the Arduino, install the following libraries:**
 
