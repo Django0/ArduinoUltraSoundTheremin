@@ -1,5 +1,3 @@
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
-
 # ArduinoUltraSoundTheremin
 The unsung melody, fusing ultrasound sensor for distance measurement and translating that to sound. Some of the participants to tried this recall it to being similar to Theremin https://en.wikipedia.org/wiki/Theremin
 
